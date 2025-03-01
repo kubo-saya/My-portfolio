@@ -280,7 +280,7 @@ transition: 0.3s;
 
 .text {
   position: absolute;
-  top: 60%;
+  top: 500px;
   left: 80px;
   color: #fff;
   z-index: 1;
@@ -728,8 +728,7 @@ justify-content: center;
   }
 
   .text {
-    left: 5%;
-    top: 50%;
+    top: 400px;
 }
 
 
@@ -895,8 +894,8 @@ h2 {
 
 
  .text {
-    left: 5vw;
-    top: 50%;
+    left: 5%;
+    top: 200px;
 }
 
 .text_en {
@@ -1045,8 +1044,7 @@ text-align: center;
 @media(max-width:380px) {
 
   .text {
-    left: 5%;
-    top: 35%;
+    top: 150px;
 }
 
 
