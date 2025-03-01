@@ -1113,7 +1113,8 @@ width: 100%;
     height: 75px;
   }
 
-  #skill img,
+  .coding_img,
+  .design-img,
   .design_square1,
   .design_square2 {
     display: none;
