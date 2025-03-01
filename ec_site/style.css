@@ -1,0 +1,828 @@
+@charset "utf-8";
+
+/* =======pc===========
+
+--------common--------- */
+
+html {
+  scroll-behavior: smooth;
+}
+
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+  font-family: 'Inter', 'Roboto', 'Montserrat', 'Arial', sans-serif, 'Noto Serif JP';
+}
+
+body {
+  color: #474645;
+  overflow-x: hidden;
+}
+
+
+a {
+  text-decoration: none;
+  color: #fff;
+}
+
+li {
+  list-style: none;
+}
+
+button {
+  all: unset;
+  cursor: pointer;
+}
+
+
+/* ---カラー設定------- */
+:root {
+  --maincolor: #8C947C;
+  --textcolor: #474645;
+}
+
+
+
+/* -----sectionタイトル----- */
+.section_title {
+  font-family: 'Noto Serif JP';
+  font-size: 30px;
+  position: relative;
+  text-align: center;
+}
+
+.section_title::after {
+  content: "";
+  width: 80px;
+  height: 3px;
+  background-color: #8C947C;
+  position: absolute;
+  bottom: -20px;
+  left: 50%;
+  transform: translateX(-50%);
+}
+
+
+/* カートボタン */
+.cart_btn {
+  width: 200px;
+  height: 60px;
+  background-color: var(--maincolor);
+  text-align: center;
+  color: #fff;
+}
+
+.cart_btn:hover {
+opacity: 0.7;
+}
+
+
+
+/* ------ヘッダー------ */
+#header {
+  width: 100vw;
+  height: 80px;
+  background-color: var(--maincolor);
+  position: fixed;
+  top: 0;
+  z-index: 2;
+}
+
+#header h1 {
+  font-family: 'Lustria';
+  font-weight: normal;
+  color: #FFF;
+}
+
+
+.header_container {
+  width: 90%;
+  height: 100%;
+  margin: 0 auto;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.header_navi {
+  display: flex;
+  justify-content: space-between;
+}
+
+.user_action {
+  display: flex;
+}
+
+
+.header_menu,
+.action_menu {
+  width: 100%;
+  padding: 10px;
+  display: flex;
+  gap: 80px;
+}
+
+.header_menu a:hover,
+.action_menu a:hover {
+  opacity: 0.7;
+}
+
+
+.action_menu a img {
+  width: 30px;
+  height: 30px;
+  display: none;
+}
+
+
+/* <!-- ------ハンバーガー----- --> */
+/* pcでは非表示 */
+.hamburger_navi {
+  display: none;
+}
+
+/* <!-- -----メインビジュ----- --> */
+#main_visual {
+  width: 100%;
+  height: 90vh;
+  position: relative;
+  z-index: 0;
+  animation: fade 4s ease ;
+}
+
+@keyframes fade {
+  0% {
+    opacity: 0;
+  }
+  100% {
+    opacity: 1;
+  }
+}
+
+
+.main_img {
+  width: 100%;
+  height: 100%;
+}
+
+.main_img img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+}
+
+
+
+
+
+/* <!-- -----メイン----- -->
+<!-- ------商品一覧（lineup）---- --> */
+#lineup {
+  width: 100%;
+  padding: 10% 0;
+  position: relative;
+}
+
+.goods_container {
+  max-width: 1200px;
+  display: flex;
+  justify-content: space-between;
+  margin: 100px auto;
+}
+
+.goods {
+  text-align: center;
+  display: flex;
+  flex-direction: column;
+  justify-content: end;
+  align-items: center;
+}
+
+.goods img {
+  width: 80%;
+  height: auto;
+}
+
+.goods_subtext {
+  font-size: 0.8rem;
+  margin-top: 5px;
+}
+
+.goods_price {
+  font-family: 'Inter';
+  font-size: 20px;
+  margin-top: 5px;
+}
+
+.cart_btn {
+  margin-top: 20px;
+}
+
+.leaf_left,
+.leaf_right {
+  width: 350px;
+  position: absolute;
+  z-index: -1;
+}
+
+.leaf_left {
+  top: 5%;
+  left: -8%;
+  transform: rotate(-60deg);
+  animation:bounce1 3s infinite ease-in-out;;
+}
+
+
+.leaf_right {
+  bottom: 0%;
+  right: -8%;
+  transform: rotate(80deg);
+  animation:bounce2 3s 0.5s infinite ease-in-out;;
+}
+
+@keyframes bounce1 {
+  0%, 100% {
+    transform: rotate(-60deg); /* 初期位置 */
+  }
+  50% {
+    transform:  rotate(-40deg); /* 上に移動 */
+  }
+}
+
+@keyframes bounce2 {
+  0%, 100% {
+    transform: rotate(80deg); /* 初期位置 */
+  }
+  50% {
+    transform:  rotate(60deg); /* 上に移動 */
+  }
+}
+
+
+
+
+
+/* <!-- ------商品特徴（products）---- --> */
+#products {
+  width: 100%;
+  padding-top: 5%;
+}
+
+#products h2 {
+  margin-bottom: 100px;
+}
+
+.products_container {
+  width: 100%;
+  height: 500px;
+}
+
+.products_container:nth-of-type(1) {
+  background-image: url('shampooBG.png');
+  background-size: cover;
+  background-position: center;
+}
+
+.products_container:nth-of-type(2) {
+  background-image: url('treatmentBG.jpeg');
+  background-size: cover;
+  background-position: center;
+  transform: scaleX(-1);
+}
+
+.products_container:nth-of-type(3) {
+  background-image: url('oilBG.png');
+  background-size: cover;
+  background-position: center;
+}
+
+
+.products_wrapper {
+  max-width: 1200px;
+  height: 100%;
+  margin: 0 auto;
+  display: flex;
+  align-items: center;
+}
+
+.products_container:nth-of-type(2) .products_wrapper {
+  display: flex;
+  flex-direction: row-reverse;
+}
+
+.products_img {
+  width: 30%;
+  height: 100%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  text-align: center;
+}
+
+.products_img img {
+  object-fit: cover;
+}
+
+
+
+.product_info {
+  width: 70%;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+.product_benefits {
+  text-align: center;
+  margin-bottom: 50px;
+}
+
+.product_benefits h3 {
+  font-family: 'Noto Serif JP';
+  font-size: 24px;
+  margin-bottom: 20px;
+}
+
+
+.product_ingredients {
+  width: 100%;
+}
+
+.product_ingredients ul {
+  width: 100%;
+  display: flex;
+  gap: 16px;
+  justify-content: center;
+}
+
+.product_ingredients ul li {
+  width: 120px;
+  height: 120px;
+  border: 1px solid #474645;
+  border-radius: 50%;
+  font-size: 12px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+
+/* -------メッセージ------ - */
+#message {
+  width: 100%;
+  height: 50vh;
+  margin: 12% 0;
+  background-image: url(baathroom.png);
+  background-size: cover;
+  background-position: center;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.message_text {
+  width: 450px;
+  padding: 50px;
+  font-size: 14px;
+  line-height: 1.5rem;
+  text-align: center;
+  display: flex;
+  align-items: center;
+  background-color: #fff;
+}
+
+
+/* -------フッター------ */
+
+#footer {
+  width: 100%;
+  height: 150px;
+  padding: 0 50px;
+  background-color: var(--maincolor);
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  position: relative;
+}
+
+#footer h3 {
+  font-family: 'Lustria';
+  font-size: 20px;
+  font-weight: normal;
+  color: #fff;
+}
+
+.footer_navi {
+  display: flex;
+}
+
+.footer_menu {
+  width: 50vw;
+  padding: 0 50px;
+  display: flex;
+  justify-content: space-between;
+  gap: 8px;
+}
+
+.footer_menu li a {
+  font-size: 14px;
+  color: #fff;
+}
+
+.footer_menu li a:hover,
+.sns_menu li a:hover {
+  opacity: 0.7;
+}
+
+
+.sns_menu {
+  width: 10%;
+  display: flex;
+  justify-content: center;
+  gap: 20px;
+}
+
+.sns_menu li img {
+  width: 25px;
+  height: 25px;
+}
+
+small {
+  position: absolute;
+  bottom: 20px;
+  left: 50%;
+  transform: translateX(-50%);
+  color: #FFF;
+  font-family: 'serif';
+}
+
+
+/* -------スライドアニメーション---- */
+  .animate {
+    opacity: 0;
+    transition: 1.5s;
+  }
+
+  .animate.su {
+    transform: translateY(50px);
+  }
+
+  .animate.sl {
+    transform: translateX(-50%);
+  }
+
+  .animate.sr {
+    transform: translateX(50%);
+  }
+
+
+  .animate.appear {
+    opacity: 1;
+    transform: translate(0px);
+  }
+
+
+
+
+
+
+/* ========タブレット========== */
+@media (max-width:1024px) {
+  /* --------common--------- */
+
+  .section_title {
+    font-size: 24px;
+  }
+
+  /* カートボタン */
+  .cart_btn {
+    width: 130px;
+    height: 50px;
+    font-size: 14px;
+  }
+
+  /* ------ヘッダー------ */
+  #header h1 {
+    font-size: 24px;
+    color: #fff;
+    position: relative;
+    top: 0;
+    left: 50%;
+    transform: translateX(-50%);
+  }
+
+  .action_menu {
+    gap: 20px;
+  }
+
+  .header_navi,
+  .action_menu a span {
+    display: none;
+  }
+
+  .user_action {
+    width: 100px;
+  }
+
+  .action_menu a img {
+    display: block;
+  }
+
+  /*------ハンバーガー-----*/
+  #hamburger {
+    width: 80px;
+    height: 80px;
+    position: fixed;
+    top: 0;
+    left: 20px;
+    z-index: 5;
+    cursor: pointer;
+  }
+
+
+  /* 閉じてるときのボタン */
+  #hamburger span {
+    width: 40px;
+    height: 3px;
+    background: #fff;
+    position: absolute;
+    top: 0;
+    left: 20px;
+    transition: 0.3s;
+  }
+
+  #hamburger span:nth-child(1) {
+    top: 20px;
+  }
+
+  #hamburger span:nth-child(2) {
+    top: 35px;
+  }
+
+  #hamburger span:nth-child(3) {
+    top: 50px;
+  }
+
+
+  /* 開いてるときのボタン*/
+  #hamburger.open span{
+    background: var(--maincolor);
+  }
+
+
+  #hamburger.open span:nth-child(1) {
+    top: 35px;
+    transition: 0.5s;
+    transform: rotate(-45deg);
+  }
+
+  #hamburger.open span:nth-child(2) {
+    top: 35px;
+    transition: 0.5s;
+    transform: rotate(45deg);
+  }
+
+  #hamburger.open span:nth-child(3) {
+    transition: 0.5s;
+    opacity: 0;
+  }
+
+  .hamburger_navi {
+    display: block;
+    width: 50%;
+    height: 50%;
+    text-align: center;
+    background: #fff;
+    position: fixed;
+    top: 0;
+    left: 0;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    z-index: 4;
+    transform: translateY(-100%);
+    transition: 0.3s;
+  }
+
+  .hamburger_menu {
+    display: flex; 
+    flex-direction: column;
+    justify-content: space-evenly;
+    align-items: center;
+    width: 50%;
+    height: 60%;
+  }
+
+ 
+  .hamburger_menu li a{
+    color: var(--textcolor);
+  }
+
+
+  .hamburger_navi.open {
+    transform: translateY(0%);
+    transition: 0.3s;
+  }
+
+  .mask.open {
+    position: fixed;
+    top: 0;
+    width: 100vw;
+    height: 100vh;
+    background-color: rgba(0, 0, 0, 0.705);
+    z-index: 3;
+  }
+
+  /* <!-- -----メイン----- -->
+<!-- ------商品一覧（lineup）---- --> */
+  .goods_container {
+    max-width: 95%;
+  }
+
+  .goods_maintext {
+    font-size: 0.8rem;
+  }
+
+  .goods_subtext {
+    font-size: 0.5rem;
+  }
+
+  .goods_price {
+    font-size: 1rem;
+  }
+
+  .leaf_left,
+  .leaf_right {
+    width: 200px;
+    position: absolute;
+    z-index: -1;
+  }
+
+
+
+  /* ------商品特徴（products）---- - */
+  .products_container {
+    width: 100%;
+    height: 450px;
+  }
+
+
+  .products_wrapper {
+    max-width: 95%;
+    height: 100%;
+    margin: 0 auto;
+    display: flex;
+  }
+
+  .product_benefits {
+    text-align: center;
+    margin-bottom: 50px;
+  }
+
+  .products_img img {
+    width: 100%;
+  }
+
+
+  .product_benefits h3 {
+    font-family: 'Noto Serif JP';
+    font-size: 20px;
+    margin-bottom: 20px;
+  }
+
+  .product_benefits p {
+    font-size: 14px;
+  }
+
+  .product_ingredients ul li {
+    width: 100px;
+    height: 100px;
+    font-size: 10px;
+  }
+
+
+  /* ------メッセージ-----  */
+  .message_text {
+    width: 50%;
+    padding: 30px;
+ }
+
+
+  /* -------フッター------  */
+  #footer {
+    display: block;
+    height: 450px;
+    padding: 20px 0;
+    text-align: center;
+  }
+
+  .footer_navi {
+    display: block;
+    width: 100%;
+    margin: 0 auto;
+  }
+
+  .footer_menu {
+    display: block;
+    width: 100%;
+    line-height: 3rem;
+  }
+
+  .sns_menu {
+    width: 30%;
+    margin: 10px auto;
+  }
+
+}
+
+
+/* =========モバイル============ */
+
+@media(max-width:540px) {
+
+  /* -----メインビジュ----- */
+  #main_visual {
+    height: 60vh;
+  }
+
+  /* ------商品一覧（lineup）---- - */
+  .goods_container {
+    display: block;
+  }
+
+  .goods {
+    margin-top: 80px;
+  }
+
+  .goods img {
+    width: 40%;
+    height: auto;
+  }
+
+  /* ------商品特徴（products）---- - */
+  .products_wrapper{
+    display: block;
+    position: relative;
+  }
+
+  .product_info {
+    width: 100%;
+    height: 0%;
+   position: absolute;
+   top: 20px;
+    }
+
+    .product_benefits {
+      text-align: center;
+      margin-bottom: 30px;
+    }
+
+
+  .product_benefits h3 {
+    font-size: 18px;
+  }
+
+
+  .products_img {
+    width: 100%;
+    height: 50%;
+    position: absolute;
+    bottom: 10px;
+  }
+
+  .products_img img {
+    width: 120px;
+  }
+  
+  .product_ingredients {
+    width: 100%;
+  }
+
+  .product_ingredients ul{
+    margin:0 auto ;
+    gap: 8px;
+   }
+
+   .product_ingredients ul li {
+    width: 90px;
+    height: 90px;
+    font-size: 9px;
+  }
+
+
+
+  /* -------メッセージ------  */
+  .message_text {
+    width: 80%;
+    font-size: 12px;
+  }
+
+  /* -------フッター------  */
+  .footer_navi li a{
+   font-size: 12px;
+  }
+
+
+}
