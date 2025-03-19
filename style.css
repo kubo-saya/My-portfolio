@@ -568,8 +568,9 @@ height: 160px;
 /* --------flow------------- */
 #flow {
   width: 100%;
-  padding: 150px 0 50px;
+  padding: 150px 0 150px;
 }
+
 
 .flow-wrapper {
   width: 80%;
@@ -630,14 +631,14 @@ height: 160px;
   line-height: 1.6;
 }
 
-
+/* あしらいの丸 */
 .flow_circle1 {
   width: 120px;
   height: 120px;
   border-radius: 50%;
   background-color: var(--maincolor);
   position: absolute;
-  bottom: 50px;
+  bottom: 0px;
   left: 250px;
   animation: float 5s linear infinite;
   z-index: -2;
@@ -649,7 +650,7 @@ height: 160px;
   border-radius: 50%;
   background-color:var(--subcolor);
   position: absolute;
-  bottom: 170px;
+  bottom: 90px;
   left: 180px;
   animation: float 5s 1s linear infinite;
   z-index: -2;
@@ -661,7 +662,7 @@ height: 160px;
   border-radius: 50%;
   background-color: var(--subcolor);
   position: absolute;
-  bottom: 250px;
+  bottom: 160px;
   left: 170px;
   animation: float 5s 2s linear infinite;
   z-index: -2;
@@ -674,7 +675,7 @@ height: 160px;
 /* -------------price---------------- */
 #price {
   width: 100%;
-  padding: 120px 0 120px ;
+  padding: 80px 0 120px ;
   background-color: #ffffff71;
 }
 
