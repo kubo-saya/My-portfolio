@@ -61,7 +61,7 @@ h3 {
   text-align: center;
   line-height: 15px;
   color: #fff;
-  padding: 8px 20px;
+  padding: 8px 28px;
   background-color: var(--btncolor);
   border-radius: 35px;
 }
@@ -89,6 +89,7 @@ h3 {
 .section_title h2 {
   font-size: 56px;
   margin-bottom: 5vw;
+  text-align: center;
 }
 
 
@@ -137,7 +138,6 @@ h3 {
   display: flex;
   justify-content: space-between;
   align-items: center;
-  color: #fff;
 }
 
 #header h1 {
@@ -147,14 +147,29 @@ h3 {
 }
 
 .header_menu a {
-  padding: 10px 0;
-  color: #fff;
+  position: relative;
+  text-decoration: none;
+  color:var(--textcolor); /* お好みの文字色 */
 }
 
-
-.header_menu a:hover {
-  color: var(--textcolor);
+/* ナビ下線 */
+.header_menu a::after {
+  content: "";
+  position: absolute;
+  bottom: -5px;
+  left: 50%;
+  transform: translateX(-50%) scaleX(0);
+  transform-origin: center;
+  width: 50px;
+  height: 2px;
+  background: currentColor; 
+  transition: transform 0.3s ease;
 }
+
+.header_menu a:hover::after {
+  transform: translateX(-50%) scaleX(1);
+}
+
 
 .header_navi ul {
   height: 100%;
@@ -174,7 +189,7 @@ h3 {
 
 
 header.scrolled {
-  background-color: #1f2c2c62;
+  background-color: #fff;
   transition: background-color 0.5s;
 }
 
@@ -187,7 +202,7 @@ header.scrolled {
 /* ----------メインビジュアル---------- */
 #main_visual {
   width: 100vw;
-  height: 100vh;
+  height: 80vh;
   position: relative;
 }
 
@@ -325,13 +340,13 @@ opacity: 0.7;
 
 /* ----------------main-------------------
 --------------------about-------------- */
-main {
-  background-color: #ffffffef;
+.bg-section {
+  background-color: #ffffffde;
 }
 
 #about {
   width: 100%;
-  padding: 150px 0 ;
+  padding: 150px 0 50px;
   margin-top: 100px;
   position: relative;
 }
@@ -455,8 +470,7 @@ main {
 /* ---------------skill-------------------*/
 
 #skill {
-  position: relative;
-  padding: 150px 0 ;
+  padding: 150px 0 50px;
 }
 
 
@@ -465,26 +479,19 @@ main {
 }
 
 .skill_wrapper {
-  position: relative;
   display: flex;
+  gap: 50px;
   justify-content: space-between;
 }
 
 .skill_text {
-  width: 75%;
-  padding: 0 5%;
+  width: 50%;
+ padding: 50px;
   font-size: 0.8rem;
-  /* background-color: #f5f5f5; */
   letter-spacing: 0.1rem;
   line-height: 2rem;
+  background-color: #F7F6F0;
 }
-
-
-.skill_wrapper:nth-of-type(2) {
-  margin-top: 180px;
-  flex-direction: row-reverse;
-}
-
 
 .skill_text h3 {
   font-size: 36px;
@@ -502,87 +509,129 @@ main {
   width: 100%;
   display: flex;
   justify-content: center;
-  gap: 36px;
+  gap: 10px;
   margin-top: 20px;
 }
 
 .skill_text ul li {
-  width: 100px;
-  height: 100px;
+  width: 80px;
+  height: 80px;
   border-radius: 50%;
   border: 1px solid #6D6059;
   display: flex;
+  flex-wrap: wrap;
   justify-content: center;
   align-items: center;
+  font-size: 10px;
 }
-
-
-.design-img img,
-.coding_img img{
-  width: 400px;
-}
-
-
-.design_square1 {
-  position: absolute;
-  background-color: var(--subcolor);
-  width: 200px;
-  height: 300px;
-  top: 30%;
-  right: -10%;
-  z-index: -1;
-  margin-right: 30px;
-}
-
-.design_square2 {
-  position: absolute;
-  background-color: #F2F7F4;
-  width: 300px;
-  height: 300px;
-  bottom: -10%;
-  left: -10%;
-  z-index: -1;
-}
-
-
-
-
 
 /* ---------------works-------------------*/
 #works {
   width: 100%;
-  padding: 150px 0 ;
+  padding: 150px 0 50px;
   text-align: center;
-  position: relative;
 }
 
-
-
 .works_list {
-  width: 100%;
   margin-top: 100px;
   display: flex;
   flex-wrap: wrap;
-  justify-content: center;
-  gap: 80px;
+  justify-content: space-between;
   font-size: 0.8rem;
 }
 
-.works_list a:hover {
-  opacity: 0.5;
-}
 
 .works_list li{
-  width: 350px;
+  width: 300px;
+  height: 250px;
+  margin-bottom: 56px;
+  padding: 20px 0;
+  background-color: #F7F6F0;
 }
 
 
 #works img {
-width: 100%;
+height: 160px;
+}
+
+.works_list li p{
+  margin-top:15px;
+}
+
+.works_list a:hover {
+  filter: brightness(0.7);
+  transition: 0.3s;
 }
 
 
-.works_circle1 {
+
+/* --------flow------------- */
+#flow {
+  width: 100%;
+  padding: 150px 0 50px;
+}
+
+.flow-wrapper {
+  width: 80%;
+  margin: 0px auto;
+  padding: 0 40px 40px;
+}
+
+.flow_step {
+  display: flex;
+  align-items: center;
+  margin-bottom: 40px;
+  position: relative;
+}
+
+/* 左側の番号（丸） */
+.flow_circle {
+  width: 40px;
+  height: 40px;
+  background-color:var(--maincolor);
+  color: #fff;
+  font-size: 18px;
+  font-weight: bold;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  border-radius: 50%;
+  z-index: 2;
+  margin-right: 20px;
+}
+
+
+/* 縦のライン */
+.flow_step::before {
+  content: "";
+  position: absolute;
+  left: 20px;
+  top: 50px;
+  width: 2px;
+  height: 80%;
+  background-color: #d8d8d8;
+}
+
+.flow_step:last-child::before {
+  display: none;
+}
+
+
+
+.flow_title {
+  font-size: 18px;
+  font-weight: bold;
+  margin-bottom: 5px;
+}
+
+.flow_description {
+  font-size: 14px;
+  color: #666;
+  line-height: 1.6;
+}
+
+
+.flow_circle1 {
   width: 120px;
   height: 120px;
   border-radius: 50%;
@@ -594,7 +643,7 @@ width: 100%;
   z-index: -2;
 }
 
-.works_circle2 {
+.flow_circle2 {
   width: 50px;
   height: 50px;
   border-radius: 50%;
@@ -606,7 +655,7 @@ width: 100%;
   z-index: -2;
 }
 
-.works_circle3 {
+.flow_circle3 {
   width: 35px;
   height: 35px;
   border-radius: 50%;
@@ -618,6 +667,128 @@ width: 100%;
   z-index: -2;
 }
 
+
+
+
+
+/* -------------price---------------- */
+#price {
+  width: 100%;
+  padding: 120px 0 120px ;
+  background-color: #ffffff71;
+}
+
+
+.price-section {
+  text-align: center;
+  padding: 50px 20px;
+}
+
+.price-content {
+  display: flex;
+  align-items:center;
+  justify-content: center;
+  gap: 60px;
+  max-width: 900px;
+  margin: 0 auto;
+}
+
+.price-image img {
+  width: 100%;
+  max-width: 400px;
+}
+.price-text {
+  max-width: 400px;
+  text-align: left;
+}
+
+.price-btn {
+  display: inline-block;
+  background-color:#fff;
+  text-decoration: none;
+  padding: 12px 28px;
+  border-radius: 35px;
+  font-size: 16px;
+  font-weight: bold;
+  margin-top: 50px;
+  border:1px solid #666;
+}
+
+.price-btn:hover {
+ background-color: #9AC1C1;
+ color: #fff;
+ transition: all 0.2s; 
+}
+
+/* =======料金別ページスタイル========= */
+
+/* セクション全体 */
+.price-section {
+  max-width: 1000px;        
+  margin: 0 auto;   
+  padding: 130px 0 100px;    
+}
+
+/* タイトル */
+.price-title {
+  font-size: 32px;
+  font-weight: bold;
+  margin-bottom: 20px;
+}
+
+.price-intro {
+  padding: 30px 20px;
+  margin-bottom: 40px;
+  line-height:2rem;
+  background-color: #F7F6F0;
+}
+
+/* 小見出し */
+.price-subtitle {
+  font-size: 20px;
+  font-weight: bold;
+  margin: 40px 0 15px;
+  position: relative;
+  display: inline-block;
+}
+
+/* 料金表 */
+.price-table {
+  width: 100%;
+  border-collapse: collapse;
+  margin: 0 auto 20px;     /* 下に余白を追加 */
+  font-size: 14px;
+  text-align: left;     
+}
+
+.price-table thead th {
+  background-color: var(--subcolor);
+  text-align: center;
+}
+
+.price-table th,
+.price-table td {
+  border: 1px solid #ccc;
+  padding: 12px;
+  background-color: #fff;
+}
+
+/* 注意書き*/
+.price-note {
+  font-size: 14px;
+  color: #888;
+  margin-bottom: 40px;
+  text-align: left;
+}
+
+/* お問い合わせ */
+.price-contact  {
+  margin-top: 100px;
+  text-align: center;
+}
+
+
+
 /* ----------footer--------------- */
 #footer {
   padding: 30px 0;
@@ -627,7 +798,6 @@ width: 100%;
 .footer_wrapper {
   max-width: 95%;
   margin: 0 auto;
-  margin-bottom: 40px;
 }
 
 .contact_btn {
@@ -651,6 +821,7 @@ width: 100%;
   display: flex;
   justify-content: center;
   align-items: center;
+  background-color: #fff;
   line-height: 1.2rem;
   opacity: 0;
   pointer-events: none;
@@ -660,6 +831,7 @@ width: 100%;
 #to_top:hover {
   background-color: var(--maincolor);
   transition: 0.3s;
+  color: #fff;
 }
 
 #to_top.scrolled {
@@ -673,7 +845,7 @@ width: 100%;
 #footer small {
   display: block;
   text-align: center;
-  margin-bottom: 0px;
+  margin-top: 50px;
 }
 
 
@@ -683,13 +855,13 @@ width: 100%;
 .animate {
   opacity: 0;
   transform: translateY(150px);
-  transition: opacity 2s, transform 2s;
+  transition: opacity 1.5s, transform 1.5s;
 }
 
 .animate.appear {
   opacity: 1;
   transform: translateY(0);
-  transition: opacity 2s, transform 2s;
+  transition: opacity 1.5s, transform 1.5s;
 }
 
 
@@ -725,8 +897,7 @@ width: 100%;
   }
 
 
-  /* ------ヘッダー--------- */
-
+  /* ------ヘッダー--------- */  
   .header_navi .navi_menu,
   .instagram-icon {
     display: none;
@@ -753,7 +924,7 @@ width: 100%;
     top: 40px;
     right: 20px;
     cursor: pointer;
-    z-index: 10;
+    z-index: 20;
   }
 
   .hamburger_menu {
@@ -767,6 +938,7 @@ width: 100%;
     opacity: 0;
     transition: opacity 0.5s;
     pointer-events: none;
+    z-index: 10;
   }
 
   .hamburger_navi {
@@ -775,7 +947,7 @@ width: 100%;
     padding-top: 10vh;
     margin: 0 auto;
     text-align: center;
-    line-height: 15vh;
+    line-height: 12vh;
   }
 
   .hamburger_navi li a {
@@ -785,7 +957,7 @@ width: 100%;
 
   .hamburger_navi li a:hover {
     display: inline-block;
-    transform: scale(1.5);
+    transform: scale(1.2);
     transition: 0.1s;
   }
 
@@ -800,7 +972,7 @@ width: 100%;
   #hamburger span {
     width: 100%;
     height: 2px;
-    background: #fff;
+    background:var(--textcolor);
     position: absolute;
     transition: all 0.5s;
   }
@@ -882,9 +1054,22 @@ width: 100%;
   }
 
   /* ---------------skill-------------------*/
-   .skill_text {
-    width: 75%;
+  .skill_wrapper {
+    width: 100%;
+    display: block;
+    margin: 0 auto;
   }
+
+
+   .skill_text {
+    width: 70%;
+    margin: 0 auto;
+  }
+
+  .skill_text:nth-child(2) {
+    margin-top: 50px;
+  }
+
 
   .skill_text h3 {
     font-size: 24px;
@@ -923,44 +1108,75 @@ width: 100%;
 
 
   /* --------------works--------------------- */
+
+  .works_list {
+    width: 100%;
+    margin: 0 auto;
+    justify-content: center;
+    gap: 32px;
+  }
+
   .works_list li{
     width: 300px;
+    height: 250px;
+    margin-bottom: 32px;
   }
 
 
-  .works_circle1 {
-    width: 80px;
-    height: 80px;
-    border-radius: 50%;
-    background-color: var(--maincolor);
-    position: absolute;
-    bottom: 10px;
-    left: 150px;
-  }
-
-  .works_circle2 {
-    width: 35px;
-    height: 35px;
-    border-radius: 50%;
-    position: absolute;
-    bottom: 80px;
-    left: 120px;
-
-  }
-
-  .works_circle3 {
-    width: 20px;
-    height: 20px;
-    border-radius: 50%;
-    position: absolute;
-    bottom: 130px;
-    left: 110px;
-  }
+/* --------flow------------- */
+#flow {
+  width: 100%;
+  padding: 150px 0 100px;
+}
 
 
+.flow-wrapper {
+  width: 100%;
+}
+
+
+.flow_content {
+  width: 80%;
+    }
+
+.flow_circle1 {
+  width: 80px;
+  height: 80px;
+  border-radius: 50%;
+  background-color: var(--maincolor);
+  position: absolute;
+  bottom: 10px;
+  left: 150px;
+}
+
+.flow_circle2{
+  width: 35px;
+  height: 35px;
+  border-radius: 50%;
+  position: absolute;
+  bottom: 80px;
+  left: 120px;
+
+}
+.flow_circle3{
+  width: 20px;
+  height: 20px;
+  border-radius: 50%;
+  position: absolute;
+  bottom: 130px;
+  left: 110px;
+}
 
 
 
+
+/* -------------price---------------- */
+.price-content {
+  gap: 24px;
+}
+
+
+/* =======料金別ページスタイル========= */
 
   /* --------フッター---------- */
 
@@ -1069,62 +1285,68 @@ width: 100%;
 
 
   /* --------------skill----------------- */
-
-
-  .skill_wrapper {
-    margin-top: 50px;
-  }
-
-
   .skill_text {
     width: 100%;
+   padding: 10px;
+    font-size: 12px;
+    letter-spacing: 0.1rem;
+    line-height: 1.5rem;
+    background-color: #F7F6F0;
   }
-
-
-  .skill_wrapper:nth-of-type(2) .skill_text {
-    margin-left: auto;
-  }
-
-  .skill_text ul {
-    gap: 8px;
-  }
-
 
   .skill_text ul li {
-    width: 75px;
-    height: 75px;
+    width: 60px;
+    height: 60px;
+    font-size: 8px;
   }
 
-  .coding_img,
-  .design-img,
-  .design_square1,
-  .design_square2 {
-    display: none;
+  /* --------flow------------- */
+  .flow-wrapper {
+    width: 100%;
+    margin: 0px auto;
+    padding: 0px;
   }
 
-  /* -------------works------------------- */
 
-  .works_list li {
-    font-size: 12px;
+  .flow_circle1 {
+    width: 60px;
+    height: 60px;
+    border-radius: 50%;
+    background-color: var(--maincolor);
+    position: absolute;
+    bottom: 10px;
+    left: 100px;
   }
-
-  .works_circle1 {
+  
+  .flow_circle2{
+    width: 25px;
+    height: 25px;
+    border-radius: 50%;
+    position: absolute;
+    bottom: 60px;
     left: 70px;
+  
   }
-
-  .works_circle2 {
-    left: 30px;
-
+  .flow_circle3{
+    width: 15px;
+    height: 15px;
+    border-radius: 50%;
+    position: absolute;
+    bottom: 100px;
+    left: 60px;
   }
+  
+/* -------------price---------------- */
 
-  .works_circle3 {
-    left: 15px;
-  }
+.price-content {
+  display: block;
+}
 
+.price-text {
+  font-size: 14px;
+  max-width: 400px;
+  text-align: center;
 
-
-
-
-
+}
 
 }
