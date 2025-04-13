@@ -148,7 +148,8 @@ h3 {
 
 .header_menu a {
   position: relative;
-  text-decoration: none;
+  display: inline-block;
+  padding: 8px 0;
   color:var(--textcolor); /* お好みの文字色 */
 }
 
@@ -156,18 +157,16 @@ h3 {
 .header_menu a::after {
   content: "";
   position: absolute;
-  bottom: -5px;
-  left: 50%;
-  transform: translateX(-50%) scaleX(0);
-  transform-origin: center;
-  width: 50px;
-  height: 2px;
-  background: currentColor; 
-  transition: transform 0.3s ease;
+  bottom: 0; /* テキストからの距離 */
+  left: 0;
+  width: 0;
+  height: 1.5px;
+  background-color: var(--textcolor);
+  transition: width 0.3s ease;
 }
 
 .header_menu a:hover::after {
-  transform: translateX(-50%) scaleX(1);
+  width: 100%;
 }
 
 
@@ -777,7 +776,7 @@ height: 160px;
 /* 注意書き*/
 .price-note {
   font-size: 14px;
-  color: #888;
+  color:var(--text);
   margin-bottom: 40px;
   text-align: left;
 }
@@ -917,6 +916,7 @@ height: 160px;
   }
 
 
+
   /* ---------ハンバーガー------- */
   #hamburger {
     width: 30px;
@@ -928,15 +928,17 @@ height: 160px;
     z-index: 20;
   }
 
+
+  /* メニュー */
   .hamburger_menu {
-    width: 100vw;
-    height: 100vh;
+    width: 100%;
+    height: 100%;
     display: block;
     background-color: #000000ce;
     position: fixed;
     top: 0;
     z-index: 2;
-    opacity: 0;
+    opacity: 0; /*閉じてるとき（非表示）*/
     transition: opacity 0.5s;
     pointer-events: none;
     z-index: 10;
@@ -945,31 +947,40 @@ height: 160px;
   .hamburger_navi {
     width: 30%;
     height: 100%;
-    padding-top: 10vh;
+    padding-top: 50px;
     margin: 0 auto;
     text-align: center;
-    line-height: 12vh;
+  }
+  .hamburger_navi li {
+    padding: 20px 0;
   }
 
+
   .hamburger_navi li a {
-    font-size: 18px;
+    position: relative;
+    display: inline-block;
+    font-size: 16px;
+    padding: 8px 0;
     color: #fff;
   }
 
-  .hamburger_navi li a:hover {
-    display: inline-block;
-    transform: scale(1.2);
-    transition: 0.1s;
+  /* メニュー下の下線 */
+  .hamburger_navi li a::after {
+    content: "";
+    position: absolute;
+    bottom: 0; /* テキストからの距離 */
+    left: 0;
+    width: 0;
+    height: 1px;
+    background-color: #fff;
+    transition: width 0.3s ease;
+  }
+  
+  .hamburger_navi li a:hover::after {
+    width: 100%;
   }
 
-
-  .hamburger_navi img {
-    width: 20px;
-    height: 20px;
-    margin-left: 10px;
-  }
-
-
+    /* ---ハンバーガーボタン(閉じてるとき）---- */
   #hamburger span {
     width: 100%;
     height: 2px;
@@ -993,7 +1004,7 @@ height: 160px;
   }
 
 
-  /* ---ハンバーガークリックしたとき---- */
+  /* ---ハンバーガーボタン(開くとき）----- */
   #hamburger.open span:nth-child(1) {
     top: 15px;
     transition: 0.5s;
@@ -1018,6 +1029,7 @@ height: 160px;
     transition: opacity 0.5s;
     pointer-events: auto;
   }
+
 
 
   /* ----------------main-------------------
